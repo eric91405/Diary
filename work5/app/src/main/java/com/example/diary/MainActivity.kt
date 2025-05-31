@@ -25,6 +25,11 @@ class MainActivity : AppCompatActivity() {
             //startActivity()로 화면 전환 실행
             startActivity(intent)
         }
+        binding.pastDiaryBtn.setOnClickListener {
+            val intent = Intent(this, PastDiaryActivity::class.java)
+            startActivity(intent)
+        }
+
 
 
     }

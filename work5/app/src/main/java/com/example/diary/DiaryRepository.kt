@@ -11,6 +11,6 @@ class DiaryRepository(private val diaryDao: DiaryDao) {
     }
 
     suspend fun delete(diaryId: Int) {
-        diaryDao.delete(diaryId) // 반환값 Int는 무시해도 됨
+        diaryDao.delete(diaryId)
     }
 }

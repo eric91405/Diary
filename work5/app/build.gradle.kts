@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    // RoomDB용 kapt 플러그인
     id("org.jetbrains.kotlin.kapt")
 }
 
@@ -48,20 +49,17 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.fragment.ktx)
-    implementation(libs.androidx.recyclerview)
 
-    implementation(libs.androidx.room.runtime)
-    kapt(libs.androidx.room.compiler)
-    implementation(libs.androidx.room.ktx)
+    // Room 라이브러리
+    implementation(libs.androidx.room.runtime)    // Room 런타임
+    kapt(libs.androidx.room.compiler)             // Room 컴파일러
+    implementation(libs.androidx.room.ktx)        // Room 코루틴 확장
 
+    // Lifecycle (ViewModel, Runtime KTX) - viewModelScope 사용 위해 필요
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.lifecycle.livedata.ktx) // ✅ 이거 추가됨
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-
-    implementation("androidx.cardview:cardview:1.0.0")
 }
